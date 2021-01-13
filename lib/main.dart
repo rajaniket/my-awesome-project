@@ -16,38 +16,34 @@ class HomePage extends StatelessWidget {
         title: Text("Awesome App Home"),
         backgroundColor: Colors.deepPurple[900],
       ),
-      body: Center(
-        child: Container(
-          //color: Colors.teal,
-          width: 200,
-          height: 200,
-          alignment:
-              Alignment.center, // to align the child within the container
-          decoration: BoxDecoration(
-            // to decorate the container but if u are using this block then donot use color property of container outside the boxDecoration otherwise error
-            //color: Colors.teal,
-            shape: BoxShape.circle,
-            //borderRadius: BorderRadius.circular(20), // this will not work with shape
-            boxShadow: [
-              BoxShadow(
-                color: Colors.blueGrey,
-                blurRadius: 10,
-                offset: Offset(2.0, 8.0),
-              )
-            ],
-            gradient:
-                LinearGradient(colors: [Colors.blueAccent, Colors.pinkAccent]),
-          ),
-          child: Text(
-            "I am a box",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 0.5,
+      body: Container(
+        color: Colors.grey[850],
+        width: MediaQuery.of(context).size.width, // width of screen
+        height: MediaQuery.of(context).size.height /
+            2, // will give half of screen height
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              color: Colors.red,
+              width: 100,
+              height: 100,
             ),
-          ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              color: Colors.blue,
+              width: 100,
+              height: 100,
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              color: Colors.orange,
+              width: 100,
+              height: 100,
+            ),
+          ],
         ),
       ),
     );
