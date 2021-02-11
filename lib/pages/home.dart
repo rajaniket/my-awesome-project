@@ -1,3 +1,4 @@
+import 'package:awesomeapp/utiles/constants.dart';
 import 'package:flutter/material.dart';
 import '../drawer.dart';
 import 'package:http/http.dart'
@@ -39,13 +40,24 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Awesome App Home"),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: () {
+                Constants.pref.setBool("loggedIn", false);
+                Navigator.pushReplacementNamed(context, "/login");
+              })
+        ],
         //backgroundColor: Colors.black,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: data != null
             ? ListView.builder(
+                // list view is already single_child_scroll_view is not required  // list
+                itemCount: data.length,
                 itemBuilder: (context, index) {
+                  // index means at which item u are currently at
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListTile(
@@ -55,7 +67,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 },
-                itemCount: data.length,
               )
             : Center(
                 child: CircularProgressIndicator(),

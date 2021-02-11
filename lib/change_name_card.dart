@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'background_image.dart';
 
 class ChangeNameCard extends StatelessWidget {
+  // this is done using extract widget of column, see line 16, we have made this like a function and we are calling it .
   const ChangeNameCard({
     Key key,
     @required this.mytext,
